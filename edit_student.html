@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Edit Student</title>
+
+<style>
+
+body{
+background:linear-gradient(135deg,#1B5E20,#43A047);
+font-family:Arial,sans-serif;
+padding:30px;
+}
+
+.container{
+background:white;
+padding:25px;
+border-radius:20px;
+max-width:500px;
+margin:auto;
+box-shadow:0 5px 20px rgba(0,0,0,0.2);
+}
+
+h1{
+text-align:center;
+color:#1B5E20;
+margin-bottom:20px;
+}
+
+label{
+font-weight:bold;
+display:block;
+margin-top:10px;
+}
+
+input{
+width:100%;
+padding:10px;
+margin-top:5px;
+border:1px solid #ccc;
+border-radius:8px;
+}
+
+button{
+margin-top:20px;
+width:100%;
+padding:12px;
+background:#2196F3;
+color:white;
+border:none;
+border-radius:8px;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+}
+
+button:hover{
+background:#1976D2;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>✏ Edit Student</h1>
+
+<form method="POST">
+
+<label>USN</label>
+<input type="text" value="{{ student.usn }}" readonly>
+
+<label>CGPA</label>
+<input type="number" step="0.01"
+name="cgpa"
+value="{{ student.cgpa }}"
+required>
+
+<label>Backlogs</label>
+<input type="number"
+name="backlogs"
+value="{{ student.backlogs }}"
+required>
+
+<label>Attendance</label>
+<input type="number"
+name="attendance"
+value="{{ student.attendance }}"
+required>
+
+<button type="submit">
+Update Student
+</button>
+
+</form>
+
+</div>
+
+</body>
+</html>

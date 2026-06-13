@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>Search Student</title>
+
+<style>
+
+body{
+    background:linear-gradient(135deg,#1B5E20,#43A047);
+    font-family:Arial,sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    margin:0;
+}
+
+.box{
+    background:white;
+    padding:30px;
+    width:650px;
+    border-radius:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.2);
+}
+
+h1{
+    text-align:center;
+    color:#1B5E20;
+    margin-bottom:20px;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    margin:15px 0;
+    border-radius:8px;
+    border:1px solid #ccc;
+    font-size:16px;
+    box-sizing:border-box;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    background:#FBC02D;
+    border:none;
+    border-radius:8px;
+    font-weight:bold;
+    font-size:16px;
+    cursor:pointer;
+    color:#1B5E20;
+}
+
+button:hover{
+    background:#FFD54F;
+}
+
+.profile-card{
+    margin-top:20px;
+    background:#f9f9f9;
+    padding:20px;
+    border-radius:15px;
+    border-left:8px solid #FBC02D;
+    box-shadow:0 3px 10px rgba(0,0,0,0.1);
+}
+
+.profile-card h2{
+    text-align:center;
+    color:#1B5E20;
+    margin-bottom:20px;
+}
+
+.info-row{
+    display:flex;
+    padding:12px;
+    margin-bottom:10px;
+    background:white;
+    border-radius:8px;
+    box-shadow:0 2px 5px rgba(0,0,0,0.05);
+}
+
+.label{
+    width:180px;
+    font-weight:bold;
+    color:#1B5E20;
+}
+
+.value{
+    font-weight:500;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+<h1>🔍 Search Student</h1>
+
+<form method="POST">
+
+<input type="text"
+    name="usn"
+    placeholder="Enter USN"
+    required>
+
+<button type="submit">
+Search Student
+</button>
+
+</form>
+
+{% if result %}
+
+<div class="profile-card">
+
+<h2>🎓 Student Profile</h2>
+
+<div class="info-row">
+<span class="label">🆔 USN</span>
+<span class="value">: {{ result.usn }}</span>
+</div>
+
+<div class="info-row">
+<span class="label">📈 CGPA</span>
+<span class="value">: {{ result.cgpa }}</span>
+</div>
+
+<div class="info-row">
+<span class="label">📚 Backlogs</span>
+<span class="value">: {{ result.backlogs }}</span>
+</div>
+
+<div class="info-row">
+<span class="label">📊 Attendance</span>
+<span class="value">: {{ result.attendance }}%</span>
+</div>
+
+</div>
+</div>
+
+{% elif request.method == "POST" %}
+
+<p style="
+color:red;
+font-weight:bold;
+text-align:center;
+margin-top:20px;
+font-size:20px;">
+❌ Student Not Found
+</p>
+
+{% endif %}
+
+
+</div>
+
+</body>
+</html>

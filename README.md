@@ -26,6 +26,9 @@ MentorTrack is a web-based Student Academic Monitoring and Analytics System deve
 - Jinja2
 - Chart.js
 
+## Dashboard Preview
+![Dashboard](Frontend.png)
+
 ## Developer
 
 Mohamed Arif M
